@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f3f3f3;
+  --foreground: #000000;
+  --oraxe-deep: #001b6e;
+  --oraxe-mid: #1e60a5;
+  --oraxe-gold: #96905a;
+  --oraxe-light-gold: #b8b584;
+  --oraxe-gray: #9297a1;
+  --oraxe-offwhite: #e5e5e5;
+  --oraxe-purple: #9747FF;
+  --font-mono-tech: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-oraxe-deep: var(--oraxe-deep);
+  --color-oraxe-mid: var(--oraxe-mid);
+  --color-oraxe-purple: var(--oraxe-purple);
+  --color-oraxe-gold: var(--oraxe-gold);
+  --color-oraxe-light-gold: var(--oraxe-light-gold);
+  --color-oraxe-gray: var(--oraxe-gray);
+  --color-oraxe-offwhite: var(--oraxe-offwhite);
+  --font-mono-tech: var(--font-mono-tech);
+  --font-inter: var(--font-inter);
+  --font-inika: var(--font-inika);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+h1,
+h2,
+h3,
+h4,
+.font-tech {
+  font-family: var(--font-geist-mono);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--oraxe-deep);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+h4 {
+  font-size: clamp(0.8rem, 1.8vw, 1.4rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-mono);
+  font-weight: 500;
+  text-align: justify;
+}
+
+p {
+  font-size: clamp(0.9rem, 1.25vw, 1.15rem);
+  text-align: justify;
+  line-height: 1.6;
+}
+
+input,
+textarea {
+  color: #000000 !important;
+}
+
+label {
+  color: var(--oraxe-deep) !important;
+}
+
+.btn-pill {
+  @apply rounded-full border px-8 py-2 font-mono-tech text-xs uppercase tracking-widest transition-all duration-300 inline-block text-center cursor-pointer;
+  border-color: var(--oraxe-deep);
+  color: var(--oraxe-deep);
+}
+
+.btn-pill-black {
+  background-color: var(--oraxe-deep);
+  color: white;
+  border: none;
+}
+
+.btn-pill-black:hover {
+  background-color: transparent;
+  color: var(--oraxe-deep);
+  outline: 1px solid var(--oraxe-deep);
+}
+
+.btn-pill-white {
+  background-color: white;
+  color: var(--oraxe-deep);
+  border: 1px solid var(--oraxe-deep);
+}
+
+.btn-pill-white:hover {
+  background-color: var(--oraxe-deep);
+  color: white;
 }

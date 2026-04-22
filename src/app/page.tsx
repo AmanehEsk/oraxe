@@ -1,65 +1,123 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="bg-[#FFF] min-h-screen w-full flex flex-col items-center py-12 px-6 md:px-16">
+      
+      {/* Main Content Container */}
+      <div className="w-full max-w-6xl flex flex-col gap-4">
+        
+        {/* Banner Section */}
+        <div className="relative w-full aspect-[21/9] md:aspect-[16/9] lg:aspect-[2/1] overflow-hidden bg-gray-100">
+          
+          {/* Main Background Image */}
+          <img
+            src="/assets/Ykpeinture11.png"
+            className="w-full h-full object-cover object-[center_30%]"
+            alt="YKPeinture Banner"
+          />
+
+          {/* Top Left Menu Box Layer */}
+          <div className="absolute top-10 left-10 bg-[#FFF] py-4 px-6 flex items-center shadow-lg">
+            
+            {/* Logo */}
+            <div className="flex items-center justify-center p-4">
+              <img
+                src="/Logo1.png"
+                className="w-24 h-auto object-contain"
+                alt="Logo Oraxe"
+              />
+            </div>
+            
+            {/* Divider */}
+            <div className="w-[1px] h-16 bg-gray-300 mx-4"></div>
+            
+            {/* Navigation Menu */}
+            <div className="flex flex-col gap-2 pl-2 pr-4">
+              <Link href="/artists" className="cursor-pointer text-left block">
+                <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+                  ARTISTS
+                </span>
+              </Link>
+              <Link href="/exhibitions" className="cursor-pointer text-left block">
+                <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+                  EXHIBITIONS
+                </span>
+              </Link>
+              <Link href="/team" className="cursor-pointer text-left block">
+                <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+                  TEAM
+                </span>
+              </Link>
+              <Link href="/contact" className="cursor-pointer text-left block">
+                <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+                  CONTACT
+                </span>
+              </Link>
+            </div>
+            
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Controls Section (Dots and Next Button) */}
+        <div className="flex justify-between items-center w-full mt-2">
+          
+          {/* Slider Dots */}
+          <div className="flex items-center gap-2 pl-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+          </div>
+
+          {/* Next Button */}
+          <button className="group cursor-pointer flex items-center gap-1.5 hover:opacity-70 transition-opacity">
+            <span className="text-black font-inter text-xs">Next</span>
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="transform group-hover:translate-x-1 transition-transform"
+            >
+              <path
+                d="M3.33334 7.99998H12.6667M12.6667 7.99998L8 3.33331M12.6667 7.99998L8 12.6666"
+                stroke="#1E1E1E"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
         </div>
-      </main>
+
+        {/* Text Section: A propo de galerie */}
+        <div className="flex flex-col md:flex-row gap-8 mt-12 w-full max-w-4xl mx-auto px-4 md:px-0 items-start">
+          
+          {/* Title */}
+          <div className="md:w-1/3 flex-shrink-0">
+            <h2 className="text-[#170098] font-inika text-2xl lg:text-3xl font-bold leading-tight m-0">
+              A propo <br className="hidden md:block" /> de galerie
+            </h2>
+          </div>
+
+          {/* Description Paragraph */}
+          <div className="md:w-2/3">
+            <p className="text-[#170098] font-inter text-sm md:text-[15px] font-semibold leading-relaxed text-justify m-0">
+              La Galerie Oraxe est un espace moderne d'exposition d'œuvres d'art
+              qui, en mettant l'accent sur les artistes et commissaires
+              contemporains, présente des expositions en cours et des ventes aux
+              enchères mensuelles. Grâce à son archive d'expositions, son magazine
+              et ses pages associées, la galerie joue un rôle actif dans la
+              sensibilisation du public à l'art contemporain et le soutien aux
+              artistes. Malgré les informations limitées dans les sources
+              disponibles, la Galerie Oraxe est reconnue comme une plateforme
+              collaborative promouvant l'art iranien.
+            </p>
+          </div>
+          
+        </div>
+        
+      </div>
     </div>
   );
 }
