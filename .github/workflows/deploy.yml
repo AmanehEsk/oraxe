@@ -1,0 +1,31 @@
+name: FTP Deploy
+on:
+  repository_dispatch:
+    types: [webhook_build] # This waits for the WordPress signal
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: ⚙️ Node.js Setup
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: 📦 Install and Build
+      run: |
+        npm install
+        npm run build
+
+    - name: 🚀 Sync to FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./out/ # This is your Next.js export folder
+        server-dir: ./public_html/ # Change if your main site is in a different folder

@@ -37,9 +37,11 @@ export default async function WorkPage({
           
           {/* Menu Box */}
           <div className="bg-[#FFF] py-4 px-6 flex items-center shadow-sm w-fit">
-            <div className="flex items-center justify-center p-4">
-              <img src="/Logo1.png" className="w-24 h-auto object-contain" alt="Logo Oraxe" />
-            </div>
+            <Link href="/" className="cursor-pointer">
+              <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
+                <img src="/Logo1.png" className="w-24 h-auto object-contain" alt="Logo Oraxe" />
+              </div>
+            </Link>
             <div className="w-[1px] h-16 bg-gray-300 mx-4"></div>
             <div className="flex flex-col gap-2 pl-2 pr-4">
               <Link href="/artists" className="cursor-pointer text-left block">

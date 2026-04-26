@@ -5,16 +5,20 @@ import Link from "next/link";
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
+type Artist = { name: string; url?: string };
+
 // From ToDo2.md exactly
-const uniqueArtists = [
-  "Mahdi Fatehi",
-  "Farzaneh Hosseini",
-  "Yasaman Khezri",
-  "Morteza Khosravi",
-  "Saeideh Mirshekari",
-  "Asareh Akasheh",
-  "Faezeh",
-  "Negareh Ayat",
+const uniqueArtists: Artist[] = [
+  { name: "Mahdi Fatehi" },
+  { name: "Farzaneh Hosseini" },
+  { name: "Yasaman Khezri" },
+  { name: "Morteza Khosravi" },
+  { name: "Saeideh Mirshekari" },
+  { name: "Asareh Akasheh" },
+  { name: "Faezeh" },
+  { name: "Negareh Ayat" },
+  { name: "Amaneh Eskandari", url: "https://www.amaneheskandari.com/" },
+  { name: "Maryam Eskandari", url: "https://maryameskandari.art/" },
 ];
 
 // Repeat to match the dense Figma visual
@@ -26,13 +30,15 @@ export default function ArtistsPage() {
       {/* Top Left Menu Box */}
       <div className="bg-[#FFF] py-4 px-6 flex items-center shadow-sm w-fit self-start mb-24 mt-8 lg:ml-8">
         {/* Logo */}
-        <div className="flex items-center justify-center p-4">
-          <img
-            src="/Logo1.png"
-            className="w-24 h-auto object-contain"
-            alt="Logo Oraxe"
-          />
-        </div>
+        <Link href="/" className="cursor-pointer">
+          <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
+            <img
+              src="/Logo1.png"
+              className="w-24 h-auto object-contain"
+              alt="Logo Oraxe"
+            />
+          </div>
+        </Link>
 
         {/* Divider */}
         <div className="w-[1px] h-16 bg-gray-300 mx-4"></div>
@@ -78,14 +84,17 @@ export default function ArtistsPage() {
         {/* Artists Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-8 gap-y-1">
           {allArtists.map((artist, idx) => {
-            const urlSlug = artist.toLowerCase().replace(" ", "-");
+            const urlSlug = artist.name.toLowerCase().replace(" ", "-");
+            const href = artist.url || `/artists/${urlSlug}`;
+            const targetProps = artist.url ? { target: "_blank", rel: "noopener noreferrer" } : {};
             return (
               <Link
                 key={idx}
-                href={`/artists/${urlSlug}`}
+                href={href}
+                {...targetProps}
                 className="text-[#9D9D9D] font-inter text-[15px] md:text-lg text-left hover:text-black transition-colors focus:outline-none whitespace-nowrap block w-fit"
               >
-                {artist}
+                {artist.name}
               </Link>
             );
           })}

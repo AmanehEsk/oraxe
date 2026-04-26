@@ -18,76 +18,47 @@ export default function HomePage() {
           />
 
           {/* Top Left Menu Box Layer */}
-          <div className="absolute top-10 left-10 bg-[#FFF] py-4 px-6 flex items-center shadow-lg">
+          <div className="absolute top-4 left-4 md:top-10 md:left-10 bg-[#FFF] py-3 px-4 md:py-4 md:px-6 flex items-center shadow-lg">
             
             {/* Logo */}
-            <div className="flex items-center justify-center p-4">
-              <img
-                src="/Logo1.png"
-                className="w-24 h-auto object-contain"
-                alt="Logo Oraxe"
-              />
-            </div>
+            <Link href="/" className="cursor-pointer">
+              <div className="flex items-center justify-center p-2 md:p-4 hover:opacity-80 transition-opacity">
+                <img
+                  src="/Logo1.png"
+                  className="w-16 md:w-24 h-auto object-contain"
+                  alt="Logo Oraxe"
+                />
+              </div>
+            </Link>
             
             {/* Divider */}
-            <div className="w-[1px] h-16 bg-gray-300 mx-4"></div>
+            <div className="w-[1px] h-12 md:h-16 bg-gray-300 mx-3 md:mx-4"></div>
             
             {/* Navigation Menu */}
-            <div className="flex flex-col gap-2 pl-2 pr-4">
+            <div className="flex flex-col gap-1 md:gap-2 pl-1 md:pl-2 pr-2 md:pr-4">
               <Link href="/artists" className="cursor-pointer text-left block">
-                <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+                <span className="text-[#9D9D9D] font-inter text-[10px] md:text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
                   ARTISTS
                 </span>
               </Link>
               <Link href="/exhibitions" className="cursor-pointer text-left block">
-                <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+                <span className="text-[#9D9D9D] font-inter text-[10px] md:text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
                   EXHIBITIONS
                 </span>
               </Link>
               <Link href="/team" className="cursor-pointer text-left block">
-                <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+                <span className="text-[#9D9D9D] font-inter text-[10px] md:text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
                   TEAM
                 </span>
               </Link>
               <Link href="/contact" className="cursor-pointer text-left block">
-                <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+                <span className="text-[#9D9D9D] font-inter text-[10px] md:text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
                   CONTACT
                 </span>
               </Link>
             </div>
             
           </div>
-        </div>
-
-        {/* Controls Section (Dots and Next Button) */}
-        <div className="flex justify-between items-center w-full mt-2">
-          
-          {/* Slider Dots */}
-          <div className="flex items-center gap-2 pl-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-black"></div>
-            <div className="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
-          </div>
-
-          {/* Next Button */}
-          <button className="group cursor-pointer flex items-center gap-1.5 hover:opacity-70 transition-opacity">
-            <span className="text-black font-inter text-xs">Next</span>
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="transform group-hover:translate-x-1 transition-transform"
-            >
-              <path
-                d="M3.33334 7.99998H12.6667M12.6667 7.99998L8 3.33331M12.6667 7.99998L8 12.6666"
-                stroke="#1E1E1E"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
         </div>
 
         {/* Text Section: A propo de galerie */}
