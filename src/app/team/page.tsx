@@ -5,7 +5,7 @@ export default function TeamPage() {
   return (
     <div className="bg-[#EBEBEB] min-h-screen w-full py-12 px-6 md:px-16 overflow-y-auto">
       <div className="w-full max-w-[1400px] mx-auto mt-8 flex flex-col">
-        
+
         {/* Menu Block */}
         <div className="mb-24">
           <div className="bg-[#FFF] py-4 px-6 flex items-center shadow-sm w-fit shrink-0">
@@ -46,13 +46,13 @@ export default function TeamPage() {
 
         {/* Main Content Layout */}
         <div className="flex flex-col gap-16 px-0 md:px-4">
-          
+
           {/* Member 1: Asma SHAHBAZI */}
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start w-full">
             {/* Column 1: Image */}
             <div className="w-full lg:w-[400px] shrink-0 relative overflow-hidden aspect-[16/9] lg:aspect-[4/3] bg-gray-300">
               <img
-                src="/shahbazi.png"
+                src="/asma_2.JPG"
                 alt="Asma Shahbazi"
                 className="w-full h-full object-cover"
               />

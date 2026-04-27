@@ -1,14 +1,35 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
-export function generateStaticParams() {
-  return [{ id: "mahdi-fatehi" }];
+export async function generateStaticParams() {
+  const res = await fetch('https://manager.galleryoraxe.com/index.php?rest_route=/wp/v2/artists&per_page=100');
+  const artists = await res.json();
+
+  if (!Array.isArray(artists)) return [];
+
+  return artists.map((artist: any) => ({
+    slug: artist.slug,
+  }));
 }
 
-export default function ArtistProfilePage() {
+async function getArtist(slug: string) {
+  const res = await fetch(`https://manager.galleryoraxe.com/index.php?rest_route=/wp/v2/artists&slug=${slug}&_embed`);
+  const artists = await res.json();
+  return artists[0];
+}
+
+export default async function ArtistProfilePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const artist = await getArtist(slug);
+
+  if (!artist) {
+    return <div className="p-20 text-[#170098] bg-[#EBEBEB] min-h-screen">Artist not found</div>;
+  }
+
+  const featuredImage = artist._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+
   return (
-    <div className="bg-[#EBEBEB] min-h-screen w-full flex flex-col py-12 px-6 md:px-16 overflow-y-auto">
+    <div className="bg-[#EBEBEB] min-h-screen w-full flex flex-col py-12 px-6 md:px-16 overflow-y-auto font-inter">
       
       {/* Top Header Row */}
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-8 items-start mb-16 mt-8 lg:ml-8">
@@ -39,11 +60,15 @@ export default function ArtistProfilePage() {
 
         {/* Profile Image */}
         <div className="w-40 h-40 md:w-48 md:h-48 shrink-0 overflow-hidden rounded-3xl mt-2 md:mt-0 shadow-sm bg-gray-300 flex items-center justify-center">
-          <img
-            src="/artists/mehdi.png"
-            alt="Mahdi Fatehi Profile"
-            className="w-full h-full object-cover"
-          />
+          {featuredImage ? (
+            <img
+              src={featuredImage}
+              alt={artist.title?.rendered || "Artist Profile"}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="text-gray-500 text-xs">No Image</div>
+          )}
         </div>
       </div>
 
@@ -51,43 +76,27 @@ export default function ArtistProfilePage() {
       <div className="w-full max-w-7xl mx-auto flex flex-col items-start px-2 lg:px-8">
         
         <h1 className="text-[#170098] font-inter text-3xl font-bold mb-8">
-          Mahdi Fatehi
+          {artist.title?.rendered || "Artist"}
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-12">
-          {/* French Bio in Blue */}
-          <p className="text-[#170098] font-inter text-sm font-semibold leading-relaxed text-justify">
-            Mahdi Fatehi est né en 1982 à Téhéran. Diplômé de l'université
-            d'art Azad en Master de design graphique en 2005, il a poursuivi
-            son métier d'affichiste pour le cinéma et le théâtre. Il a
-            remporté de nombreux prix internationaux tels le Prix de bronze à
-            la 10e édition de International Poster Triennial, Toyama, Japon,
-            Premier prix à la 35e édition du festival international des
-            affiches du théâtre Fadjr, Téhéran, Iran, Prix de bronze à la 8e
-            Triennale internationale de l'affiche de scène , Sofia, Bulgarie.
-            Depuis 2007, il enseigne dans les universités d'art de Téhéran, en
-            Iran. Il a également organisé 4 expositions d'affiches solo à
-            Téhéran, Ispahan, Arak et Paris. Is et membre de Theatre Poster
-            Designers Society.
-          </p>
-
-          {/* English Bio in Black */}
-          <p className="text-black font-inter text-[13px] font-semibold leading-relaxed text-justify">
-            Mahdi Fatehi was born in 1982 in Tehran. He graduated from Azad
-            University of Art with a Master's degree in Graphic Design in 2005
-            and continued his career as a poster designer for cinema and
-            theater. He has won numerous international awards such as the
-            Bronze Prize at the 10th International Poster Triennial, Toyama,
-            Japan; First Prize at the 35th Fadjr International Theater Poster
-            Festival, Tehran, Iran; and the Bronze Prize at the 8th Sofia
-            International Poster Triennial for the Stage, Sofia, Bulgaria.
-            Since 2007, he has taught at art universities in Tehran, Iran. He
-            has also held four solo poster exhibitions in Tehran, Isfahan,
-            Arak, and Paris.
-          </p>
+        <div className="w-full max-w-4xl mb-12">
+          {/* Bio from WordPress ACF or Content */}
+          {artist.acf?.description ? (
+            <div 
+              className="text-[#170098] font-inter text-sm leading-relaxed text-justify wp-content"
+              dangerouslySetInnerHTML={{ __html: artist.acf.description }}
+            />
+          ) : artist.content?.rendered ? (
+            <div 
+              className="text-[#170098] font-inter text-sm leading-relaxed text-justify wp-content"
+              dangerouslySetInnerHTML={{ __html: artist.content.rendered }}
+            />
+          ) : (
+            <p className="text-[#170098] font-inter text-sm leading-relaxed">No description available for this artist.</p>
+          )}
         </div>
 
-        {/* Download Links / CV */}
+        {/* Download Links / CV (Placeholders as in original design) */}
         <div className="flex flex-wrap gap-12 mb-20 items-center">
           <a href="#" className="flex items-center gap-3 group">
             <svg
@@ -131,14 +140,13 @@ export default function ArtistProfilePage() {
           </a>
         </div>
 
-        {/* Gallery Grid of Works (Gray SquaresPlaceholder) */}
+        {/* Gallery Grid of Works (Placeholders as in original design) */}
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-          {[...Array(25)].map((_, i) => (
-            <Link
-              href={`/works/${i + 1}`}
+          {[...Array(10)].map((_, i) => (
+            <div
               key={i}
               className="aspect-square bg-[#DBDBDB] w-full hover:opacity-80 transition-opacity cursor-pointer block"
-            ></Link>
+            ></div>
           ))}
         </div>
       </div>

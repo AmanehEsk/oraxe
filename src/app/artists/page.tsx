@@ -1,30 +1,28 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-type Artist = { name: string; url?: string };
+interface Artist {
+  id: number;
+  title: { rendered: string };
+  slug: string;
+  acf?: any;
+}
 
-// From ToDo2.md exactly
-const uniqueArtists: Artist[] = [
-  { name: "Mahdi Fatehi" },
-  { name: "Farzaneh Hosseini" },
-  { name: "Yasaman Khezri" },
-  { name: "Morteza Khosravi" },
-  { name: "Saeideh Mirshekari" },
-  { name: "Asareh Akasheh" },
-  { name: "Faezeh" },
-  { name: "Negareh Ayat" },
-  { name: "Amaneh Eskandari", url: "https://www.amaneheskandari.com/" },
-  { name: "Maryam Eskandari", url: "https://maryameskandari.art/" },
-];
+async function getArtists(): Promise<Artist[]> {
+  const res = await fetch(
+    'https://manager.galleryoraxe.com/index.php?rest_route=/wp/v2/artists&_embed&per_page=100',
+    { next: { revalidate: 3600 } }
+  );
 
-// Repeat to match the dense Figma visual
-const allArtists = Array.from({ length: 48 }, (_, i) => uniqueArtists[i % uniqueArtists.length]);
+  if (!res.ok) throw new Error('Failed to fetch artists');
+  return res.json();
+}
 
-export default function ArtistsPage() {
+export default async function ArtistsPage() {
+  const artists = await getArtists();
+
   return (
     <div className="bg-[#EBEBEB] min-h-screen w-full flex flex-col py-12 px-6 md:px-16 overflow-y-auto">
       {/* Top Left Menu Box */}
@@ -46,7 +44,7 @@ export default function ArtistsPage() {
         {/* Navigation Menu */}
         <div className="flex flex-col gap-2 pl-2 pr-4">
           <Link href="/artists" className="cursor-pointer text-left block">
-            <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+            <span className="text-[#000] font-inter text-[11px] font-semibold tracking-widest transition-colors">
               ARTISTS
             </span>
           </Link>
@@ -83,18 +81,14 @@ export default function ArtistsPage() {
 
         {/* Artists Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-8 gap-y-1">
-          {allArtists.map((artist, idx) => {
-            const urlSlug = artist.name.toLowerCase().replace(" ", "-");
-            const href = artist.url || `/artists/${urlSlug}`;
-            const targetProps = artist.url ? { target: "_blank", rel: "noopener noreferrer" } : {};
+          {artists.map((artist) => {
             return (
               <Link
-                key={idx}
-                href={href}
-                {...targetProps}
+                key={artist.id}
+                href={`/artists/${artist.slug}`}
                 className="text-[#9D9D9D] font-inter text-[15px] md:text-lg text-left hover:text-black transition-colors focus:outline-none whitespace-nowrap block w-fit"
               >
-                {artist.name}
+                {artist.title?.rendered || "Unknown Artist"}
               </Link>
             );
           })}
