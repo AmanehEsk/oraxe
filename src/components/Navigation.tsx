@@ -31,6 +31,9 @@ export default function Navigation() {
         <Link href="/team" className="hover:opacity-70 transition-opacity uppercase">
           Team
         </Link>
+        <Link href="/manifeste" className="hover:opacity-70 transition-opacity uppercase">
+          Manifeste
+        </Link>
         <Link href="/contact" className="hover:opacity-70 transition-opacity uppercase">
           Contact
         </Link>

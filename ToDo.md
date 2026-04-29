@@ -1,42 +1,50 @@
-Update artist page to display this specific ACF data. : app/artists/[slug]/page.tsx file and update the return section:
 
-export default async function ArtistProfile({ params }: { params: { slug: string } }) {
-  const { slug } = await params;
-  const artist = await getArtist(slug);
+Make a page :
 
-  if (!artist) return <div>Artist not found</div>;
+POLITIQUE DE CONFIDENTIALITÉ
+Dernière mise à jour : 29 Avril 2026
 
-  return (
-    <main className="p-10 md:p-20 bg-white">
-      <h1 className="text-[#170098] text-4xl font-bold uppercase mb-8">
-        {artist.title.rendered}
-      </h1>
+Bienvenue chez Oraxe. Parce que nous croyons que la liberté artistique commence par le respect de la vie privée, nous traitons vos données avec la même exigence que nos œuvres d'art : avec soin, clarté et sécurité.
 
-      <div className="flex flex-col md:flex-row gap-10">
-        {/* Artist Image */}
-        <div className="w-full md:w-1/3">
-          <img
-            src={artist._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.jpg'}
-            alt={artist.title.rendered}
-            className="w-full h-auto"
-          />
-        </div>
+1. CE QUE NOUS COLLECTONS (L'ESSENTIEL)
+Nous ne collectionnons pas les données pour le plaisir de les accumuler. Nous recueillons uniquement ce qui est nécessaire pour vous connecter à l'art :
 
-        {/* The New Description Section */}
-        <div className="w-full md:w-2/3 text-[#170098]">
-          <h2 className="text-xl font-bold mb-4 italic">Biography</h2>
+Identité & Contact : Nom, prénom et votre email (galerieo@galleryoraxe.com est notre point de contact, le vôtre nous sert à vous répondre).
 
-          {/* This line fetches the ACF field you just created */}
-          {artist.acf?.description ? (
-            <div
-              className="prose prose-blue leading-relaxed text-justify"
-              dangerouslySetInnerHTML={{ __html: artist.acf.description }}
-            />
-          ) : (
-            <p>No description available for this artist.</p>
-          )}
-        </div>
-      </div>
-    </main>
-  );
-}
+Données de Transaction : Pour nos ventes aux enchères et acquisitions.
+
+Navigation : Des données anonymes pour comprendre quelles expositions vous font vibrer sur notre site.
+
+2. POURQUOI VOS DONNÉES SONT-ELLES ICI ?
+Nous utilisons vos informations pour :
+
+Vous envoyer notre Magazine et les alertes de ventes aux enchères.
+
+Faciliter les collaborations internationales via notre partenaire Art Conversation (Artistes Sans Frontières).
+
+Assurer la sécurité de vos transactions artistiques.
+
+3. PAS DE FRONTIÈRES, MAIS DES LIMITES
+Vos données ne sont ni vendues, ni louées à des tiers. Elles circulent uniquement entre la Galerie Oraxe et ses partenaires techniques de confiance (comme Artistes Sans Frontières) pour rendre possible votre expérience internationale.
+
+4. VOS DROITS (VOUS ÊTES LE CURATEUR)
+Vous gardez le contrôle total sur vos données personnelles. À tout moment, vous pouvez :
+
+Demander l'accès à vos données.
+
+Corriger une information.
+
+Demander la suppression totale de votre profil de nos archives.
+
+5. SÉCURITÉ
+Nous utilisons des protocoles de chiffrement standards pour protéger vos informations contre les accès non autorisés. Vos données sont stockées sur des serveurs sécurisés.
+
+6. NOUS CONTACTER
+Une question ? Une envie de retirer vos données ? Ou juste besoin de précision sur notre gestion de la vie privée ?
+
+Écrivez-nous directement à l'adresse dédiée :
+📩 galerieo@galleryoraxe.com
+
+-----
+
+make a very simple one ligne footer with copyright 2026 and add Mahdi Fatehi : Designer and DevOps: Art Conversation with hyperlink : https://www.artistessansfrontieres.com/ ,and POLITIQUE DE CONFIDENTIALITÉ page in footer ,all in one or 2 ligne and in the center with gray color

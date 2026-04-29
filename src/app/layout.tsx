@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Inika } from "next/font/google";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const inter = Inter({
@@ -25,7 +26,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${inika.variable}`}>
-      <body>{children}</body>
+      <body className="flex flex-col min-h-screen">
+        <main className="flex-grow flex flex-col w-full relative">
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 }

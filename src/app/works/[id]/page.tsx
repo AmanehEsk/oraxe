@@ -53,6 +53,11 @@ export default async function WorkPage({
               <Link href="/team" className="cursor-pointer text-left block">
                 <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">TEAM</span>
               </Link>
+              <Link href="/manifeste" className="cursor-pointer text-left block">
+                <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+                  MANIFESTE
+                </span>
+              </Link>
               <Link href="/contact" className="cursor-pointer text-left block">
                 <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">CONTACT</span>
               </Link>
