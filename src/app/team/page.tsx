@@ -135,6 +135,40 @@ export default function TeamPage() {
             </div>
           </div>
 
+          {/* Member 3: Joëlle PÉHAUT */}
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start w-full">
+            {/* Column 1: Image */}
+            <div className="w-full lg:w-[400px] shrink-0 relative overflow-hidden aspect-[16/9] lg:aspect-[4/3] bg-gray-300">
+              <img
+                src="/Joolle_Pehaut .jpg"
+                alt="Joëlle Péhaut"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Column 2: Info */}
+            <div className="w-full lg:w-48 shrink-0 flex flex-col gap-1">
+              <span className="text-[#000] font-inter text-[13px] font-bold">
+                Joëlle PÉHAUT
+              </span>
+            </div>
+
+            {/* Column 3: Bio */}
+            <div className="flex-grow w-full max-w-xl">
+              <div className="text-[#000] font-inter text-[13px] font-normal leading-relaxed text-left text-justify flex flex-col gap-4">
+                <p>
+                  Joëlle Péhaut née en 1959, vit entre Paris et la Bourgogne. Socio-linguiste de formation. Directrice de communication pour un groupe industriel (BTE) puis cheffe d’établissement à Paris.
+                </p>
+                <p>
+                  Diplômée d’arts plastiques, présidente de l’association UN/UN qui a montré pendant plusieurs années de l’art conceptuel et minimal dans l’espace public. A collaboré plusieurs années avec le Centre National Art et d’Image Imprimée (Cnai).
+                </p>
+                <p>
+                  Accompagne les artistes et rédige notamment critiques, textes et entretiens pour des catalogues, expositions et magazines. Commissaire d’expositions et journaliste à Artension et à Saisons de Culture.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
