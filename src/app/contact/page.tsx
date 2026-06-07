@@ -107,17 +107,20 @@ export default function ContactPage() {
             
             {/* Address Block */}
             <div className="flex flex-col gap-8">
-              <div className="flex flex-col leading-tight">
-                <span className="text-black font-inter text-[15px] font-bold">ORAXE</span>
-                <span className="text-black font-inter text-[15px] font-bold">ART</span>
-                <span className="text-black font-inter text-[15px] font-bold">GALLERY</span>
-              </div>
-              
-              <div className="flex flex-col gap-4 text-[#000] font-inter text-[13px] font-normal">
-                <p>(TRIVARIUS)</p>
-                <p>320 RUE SAINT-HONORÉ<br />75001 PARIS</p>
+              <div className="flex flex-col gap-6 text-[#000] font-inter text-[13px] font-normal">
+                <div>
+                  <p className="font-bold mb-1">Galerie d'art ORAXE :</p>
+                  <p>📍 20 Rue Saint Roch 75001 Paris</p>
+                </div>
+
+                <div>
+                  <p className="font-bold mb-1">Siege :</p>
+                  <p>TRIVARIUS</p>
+                  <p>📍 320 RUE SAINT-HONORÉ</p>
+                  <p>75001 PARIS</p>
+                </div>
                 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 mt-4">
                   {/* Instagram Icon Placeholder */}
                   <div className="w-8 h-8 flex items-center justify-center border border-gray-400 rounded-lg text-gray-600">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

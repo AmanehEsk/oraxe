@@ -71,9 +71,6 @@ export default function TeamPage() {
               <span className="text-[#000] font-inter text-[13px] font-bold mt-4">
                 Director
               </span>
-              <span className="text-[#000] font-inter text-[13px] font-normal mt-0">
-                asmashahbazi@oraxe.com
-              </span>
             </div>
 
             {/* Column 3: Bio */}
@@ -111,9 +108,6 @@ export default function TeamPage() {
               <span className="text-[#000] font-inter text-[13px] font-bold mt-4">
                 Curator
               </span>
-              <span className="text-[#000] font-inter text-[13px] font-normal mt-0">
-                mahdifatehi@oraxe.com
-              </span>
             </div>
 
             {/* Column 3: Bio */}
@@ -150,6 +144,9 @@ export default function TeamPage() {
             <div className="w-full lg:w-48 shrink-0 flex flex-col gap-1">
               <span className="text-[#000] font-inter text-[13px] font-bold">
                 Joëlle PÉHAUT
+              </span>
+              <span className="text-[#000] font-inter text-[13px] font-bold mt-4">
+                Consultante
               </span>
             </div>
 
