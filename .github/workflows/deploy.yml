@@ -31,4 +31,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./out/ # This is your Next.js export folder
-        server-dir: ./public_html/ # Change if your main site is in a different folder
+        server-dir: ./manager.galleryoraxe.com/
