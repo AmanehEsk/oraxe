@@ -5,9 +5,12 @@ export async function generateStaticParams() {
   const res = await fetch(
     'https://manager.galleryoraxe.com/index.php?rest_route=/wp/v2/artists&per_page=100',
     {
+      method: 'GET',
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-      }
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      },
+      cache: 'force-cache',
     }
   );
   const artists = await res.json();
@@ -23,11 +26,20 @@ async function getArtist(slug: string) {
   const res = await fetch(
     `https://manager.galleryoraxe.com/index.php?rest_route=/wp/v2/artists&slug=${slug}&_embed`,
     {
+      method: 'GET',
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-      }
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      },
+      cache: 'force-cache',
     }
   );
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Failed to fetch artist. Status: ${res.status}. Response: ${errorText}`);
+  }
+
   const artists = await res.json();
   return artists[0];
 }
