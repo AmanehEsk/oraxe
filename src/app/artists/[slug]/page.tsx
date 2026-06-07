@@ -2,7 +2,14 @@ import React from "react";
 import Link from "next/link";
 
 export async function generateStaticParams() {
-  const res = await fetch('https://manager.galleryoraxe.com/index.php?rest_route=/wp/v2/artists&per_page=100');
+  const res = await fetch(
+    'https://manager.galleryoraxe.com/index.php?rest_route=/wp/v2/artists&per_page=100',
+    {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      }
+    }
+  );
   const artists = await res.json();
 
   if (!Array.isArray(artists)) return [];
@@ -13,7 +20,14 @@ export async function generateStaticParams() {
 }
 
 async function getArtist(slug: string) {
-  const res = await fetch(`https://manager.galleryoraxe.com/index.php?rest_route=/wp/v2/artists&slug=${slug}&_embed`);
+  const res = await fetch(
+    `https://manager.galleryoraxe.com/index.php?rest_route=/wp/v2/artists&slug=${slug}&_embed`,
+    {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      }
+    }
+  );
   const artists = await res.json();
   return artists[0];
 }
