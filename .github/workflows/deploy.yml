@@ -1,5 +1,8 @@
 name: FTP Deploy
 on:
+  push:
+    branches:
+      - main
   repository_dispatch:
     types: [webhook_build] # This waits for the WordPress signal
 
