@@ -21,24 +21,24 @@ export default function ManifestePage() {
           <div className="bg-[#FFF] py-3 md:py-4 px-4 md:px-6 flex items-center shadow-sm w-fit max-w-full overflow-x-auto shrink-0 rounded-sm">
             <Link href="/" className="cursor-pointer">
               <div className="flex items-center justify-center p-4 hover:opacity-80 transition-opacity">
-                <img src="/Logo1.png" className="w-24 h-auto object-contain" alt="Logo Oraxe" />
+                <img src="/Logo1.png" className="w-28 md:w-40 h-auto object-contain" alt="Logo Oraxe" />
               </div>
             </Link>
             <div className="w-[1px] h-16 bg-gray-300 mx-4"></div>
             <div className="flex flex-col gap-2 pl-2 pr-4">
-              <Link href="/artists" className="cursor-pointer text-left block">
+              <Link href="/#artists" className="cursor-pointer text-left block">
                 <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">ARTISTS</span>
               </Link>
-              <Link href="/exhibitions" className="cursor-pointer text-left block">
+              <Link href="/#exhibitions" className="cursor-pointer text-left block">
                 <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">EXHIBITIONS</span>
               </Link>
-              <Link href="/team" className="cursor-pointer text-left block">
+              <Link href="/#team" className="cursor-pointer text-left block">
                 <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">TEAM</span>
               </Link>
-              <Link href="/manifeste" className="cursor-pointer text-left block">
+              <Link href="/#manifeste" className="cursor-pointer text-left block">
                 <span className="text-[#000] font-inter text-[11px] font-semibold tracking-widest transition-colors">MANIFESTE</span>
               </Link>
-              <Link href="/contact" className="cursor-pointer text-left block">
+              <Link href="/#contact" className="cursor-pointer text-left block">
                 <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">CONTACT</span>
               </Link>
             </div>
