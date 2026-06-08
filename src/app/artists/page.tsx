@@ -1,4 +1,5 @@
-import React from "react";
+export const dynamic = "force-static";
+
 import Link from "next/link";
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");

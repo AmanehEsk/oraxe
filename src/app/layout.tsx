@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${inika.variable}`}>
+    <html lang="en" className={`${inter.variable} ${inika.variable}`} data-scroll-behavior="smooth">
       <body className="flex flex-col min-h-screen">
         <main className="flex-grow flex flex-col w-full relative">
           {children}
