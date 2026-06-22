@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import HomeSlider from "@/components/HomeSlider";
 
 interface Artist {
   id: number;
@@ -57,17 +58,10 @@ export default async function HomePage() {
       <div className="w-full max-w-7xl flex flex-col gap-24">
         
         {/* Banner Section */}
-        <div className="relative w-full aspect-[21/9] md:aspect-[16/9] lg:aspect-[2/1] overflow-hidden bg-gray-100 max-w-6xl mx-auto">
+        <div className="flex flex-col xl:flex-row w-full max-w-7xl mx-auto gap-8 items-start justify-between">
           
-          {/* Main Background Image */}
-          <img
-            src="/assets/Ykpeinture11.png"
-            className="w-full h-full object-cover object-[center_30%]"
-            alt="YKPeinture Banner"
-          />
-
-          {/* Top Left Menu Box Layer */}
-          <div className="absolute top-4 left-4 md:top-10 md:left-10 bg-[#FFF] py-3 px-4 md:py-4 md:px-6 flex items-center shadow-lg z-10">
+          {/* Left Menu Box */}
+          <div className="bg-transparent py-4 flex items-center w-fit shrink-0">
             
             {/* Logo */}
             <Link href="/" className="cursor-pointer">
@@ -95,6 +89,11 @@ export default async function HomePage() {
                   EXHIBITIONS
                 </span>
               </Link>
+              <Link href="#upcoming-events" className="cursor-pointer text-left block">
+                <span className="text-[#9D9D9D] font-inter text-[10px] md:text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+                  UPCOMING EVENTS
+                </span>
+              </Link>
               <Link href="#team" className="cursor-pointer text-left block">
                 <span className="text-[#9D9D9D] font-inter text-[10px] md:text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
                   TEAM
@@ -113,6 +112,12 @@ export default async function HomePage() {
             </div>
             
           </div>
+          
+          {/* Main Background Image Slider */}
+          <div className="relative w-full h-[500px] md:h-[600px] lg:h-[750px] overflow-hidden bg-transparent flex-grow">
+            <HomeSlider />
+          </div>
+          
         </div>
 
         {/* Text Section */}
@@ -202,6 +207,44 @@ export default async function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Upcoming Events Section */}
+        <div id="upcoming-events" className="flex flex-col gap-12 scroll-mt-24 pt-8 border-t border-gray-300">
+          <div>
+            <h2 className="text-[#170098] font-inika text-2xl lg:text-3xl font-bold tracking-widest uppercase text-left">
+              Upcoming Events
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+            <div className="w-full flex flex-col">
+              <div className="w-full aspect-[3/4] bg-gray-200 overflow-hidden shadow-sm hover:opacity-85 transition-opacity">
+                <img
+                  src="https://galleryoraxe.com/events/poster_oraxe_1.jpeg"
+                  alt="Upcoming Event 1"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="w-full flex flex-col">
+              <div className="w-full aspect-[3/4] bg-gray-200 overflow-hidden shadow-sm hover:opacity-85 transition-opacity">
+                <img
+                  src="https://galleryoraxe.com/events/poster_oraxe_2.jpeg"
+                  alt="Upcoming Event 2"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="w-full flex flex-col">
+              <div className="w-full aspect-[3/4] bg-gray-200 overflow-hidden shadow-sm hover:opacity-85 transition-opacity">
+                <img
+                  src="https://galleryoraxe.com/events/poster_oraxe_3.jpeg"
+                  alt="Upcoming Event 3"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -332,6 +375,56 @@ export default async function HomePage() {
                 </div>
               </div>
             </div>
+
+            {/* Member 4: Marie-Laure MEHL */}
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start w-full">
+              <div className="w-full lg:w-[400px] shrink-0 relative overflow-hidden aspect-[16/9] lg:aspect-[4/3] bg-gray-300">
+                <img
+                  src="/Marie-Laure.jpeg"
+                  alt="Marie-Laure Mehl"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-full lg:w-48 shrink-0 flex flex-col gap-1">
+                <span className="text-[#000] font-inter text-[13px] font-bold text-left">
+                  Marie-Laure MEHL
+                </span>
+                <span className="text-[#000] font-inter text-[13px] font-bold mt-4 text-left">
+                  Membre fondatrice
+                </span>
+                <a
+                  href="mailto:Marie-Laure.MEHL@oraxe.eu"
+                  className="text-[#9D9D9D] font-inter text-[12px] font-medium hover:text-[#000] transition-colors mt-4 break-all text-left"
+                >
+                  Marie-Laure.MEHL@oraxe.eu
+                </a>
+              </div>
+              <div className="flex-grow w-full max-w-xl">
+                <div className="text-[#000] font-inter text-[13px] font-normal leading-relaxed text-left text-justify flex flex-col gap-4">
+                  <p>
+                    Marie-Laure Mehl, née le 14 juin 1953, est membre fondatrice de la Galerie Oraxe.
+                  </p>
+                  <p>
+                    Architecte scénographe, muséographe et spécialiste des expositions culturelles, elle met au service de la galerie plus de quarante années d’expérience consacrée à la conception, au développement et à l’accompagnement de projets d’exposition.
+                  </p>
+                  <p>
+                    Au cours de sa carrière, elle a participé à la réalisation d’environ 200 expositions temporaires et permanentes au sein d’institutions culturelles majeures, dans des contextes patrimoniaux et architecturaux variés : musées, châteaux, lieux de mémoire, centres d’interprétation et architectures contemporaines.
+                  </p>
+                  <p>
+                    Son parcours l’a conduite à intervenir notamment à la Cité des Sciences et de l’Industrie, au château de Chambord, au Haras du Pin, au Musée de l’Homme, à la Conciergerie, au Musée de l’Air et de l’Espace du Bourget, ainsi qu’à mener des missions d’assistance à maîtrise d’ouvrage pour la Bibliothèque nationale de France et le Muséum national d’Histoire naturelle.
+                  </p>
+                  <p>
+                    Engagée dans la transmission des savoirs, elle enseigne la scénographie et la muséographie depuis de nombreuses années au sein de plusieurs établissements de référence, dont l’École Bleue, ICART, EFAP et ISCOM.
+                  </p>
+                  <p>
+                    Membre active de l’Association Scénographes depuis 2008, elle participe aux réflexions sur l’évolution des pratiques professionnelles et a contribué à la rédaction du Guide des bonnes pratiques d’exposition et des scénographes d’expositions. Elle est également l’un des membres fondateurs de XPO, la Fédération des Métiers de l’Exposition.
+                  </p>
+                  <p>
+                    Par son expérience, sa connaissance du monde muséal et sa vision de l’exposition comme espace de dialogue entre œuvres et publics, Marie-Laure Mehl contribue au développement de la Galerie Oraxe et à son ambition d’exigence artistique et culturelle.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -398,56 +491,56 @@ export default async function HomePage() {
         </div>
 
         {/* Contact Section */}
-        <div id="contact" className="flex flex-col gap-12 scroll-mt-24 pt-8 border-t border-gray-300">
+        <div id="contact" className="flex flex-col gap-16 scroll-mt-24 pt-16 border-t border-gray-200">
           <div>
-            <h2 className="text-[#170098] font-inika text-2xl lg:text-3xl font-bold tracking-widest uppercase text-left">
-              CONTACT
+            <h2 className="text-[#000] font-inter text-2xl lg:text-3xl font-light tracking-[0.2em] uppercase text-left">
+              Contact
             </h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 lg:gap-32 items-start w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start w-full">
             {/* Left Side: Form Column */}
             <div className="flex flex-col gap-12 w-full">
-              <div className="bg-white p-8 rounded-lg shadow-sm w-full">
-                <form className="flex flex-col gap-6">
-                  <div className="flex flex-col gap-2">
-                    <label className="text-black font-inter text-sm font-semibold">Name</label>
+              <div className="bg-transparent w-full">
+                <form className="flex flex-col gap-8">
+                  <div className="flex flex-col gap-1">
+                    <label className="text-gray-400 font-inter text-[10px] uppercase tracking-widest font-medium">Name</label>
                     <input 
                       type="text" 
-                      placeholder="Value" 
-                      className="border border-gray-200 p-2.5 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-400 font-inter text-sm"
+                      className="bg-transparent border-b border-gray-300 py-3 focus:outline-none focus:border-black font-inter text-sm transition-colors rounded-none placeholder-gray-300"
+                      placeholder="Your name"
                     />
                   </div>
                   
-                  <div className="flex flex-col gap-2">
-                    <label className="text-black font-inter text-sm font-semibold">Surname</label>
+                  <div className="flex flex-col gap-1">
+                    <label className="text-gray-400 font-inter text-[10px] uppercase tracking-widest font-medium">Surname</label>
                     <input 
                       type="text" 
-                      placeholder="Value" 
-                      className="border border-gray-200 p-2.5 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-400 font-inter text-sm"
+                      className="bg-transparent border-b border-gray-300 py-3 focus:outline-none focus:border-black font-inter text-sm transition-colors rounded-none placeholder-gray-300"
+                      placeholder="Your surname"
                     />
                   </div>
                   
-                  <div className="flex flex-col gap-2">
-                    <label className="text-black font-inter text-sm font-semibold">Email</label>
+                  <div className="flex flex-col gap-1">
+                    <label className="text-gray-400 font-inter text-[10px] uppercase tracking-widest font-medium">Email</label>
                     <input 
                       type="email" 
-                      placeholder="Value" 
-                      className="border border-gray-200 p-2.5 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-400 font-inter text-sm"
+                      className="bg-transparent border-b border-gray-300 py-3 focus:outline-none focus:border-black font-inter text-sm transition-colors rounded-none placeholder-gray-300"
+                      placeholder="Your email address"
                     />
                   </div>
                   
-                  <div className="flex flex-col gap-2">
-                    <label className="text-black font-inter text-sm font-semibold">Message</label>
+                  <div className="flex flex-col gap-1">
+                    <label className="text-gray-400 font-inter text-[10px] uppercase tracking-widest font-medium">Message</label>
                     <textarea 
-                      placeholder="Value" 
-                      rows={4}
-                      className="border border-gray-200 p-2.5 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-400 font-inter text-sm resize-none"
+                      rows={1}
+                      className="bg-transparent border-b border-gray-300 py-3 focus:outline-none focus:border-black font-inter text-sm transition-colors rounded-none placeholder-gray-300 resize-none overflow-hidden"
+                      placeholder="Your message..."
                     ></textarea>
                   </div>
 
                   <button 
                     type="submit"
-                    className="bg-[#2D2D2D] text-white font-inter text-sm font-semibold py-3 rounded-md hover:bg-black transition-colors"
+                    className="mt-4 border border-black text-black bg-transparent font-inter text-xs uppercase tracking-widest font-medium py-4 px-10 hover:bg-black hover:text-white transition-all w-fit"
                   >
                     Submit
                   </button>
@@ -456,35 +549,36 @@ export default async function HomePage() {
             </div>
 
             {/* Right Side: Address + Map Column */}
-            <div className="flex flex-col gap-12 lg:gap-24 w-full">
-              <div className="flex flex-col gap-8">
-                <div className="flex flex-col gap-6 text-[#000] font-inter text-[13px] font-normal">
-                  <div>
-                    <p className="font-bold mb-1 text-left">Galerie d'art ORAXE :</p>
-                    <p className="text-left">📍 20 Rue Saint Roch 75001 Paris</p>
-                  </div>
+            <div className="flex flex-col gap-16 lg:gap-20 w-full">
+              <div className="flex flex-col gap-10">
+                
+                <div className="flex flex-col gap-1 text-[#000] font-inter">
+                  <p className="text-gray-400 text-[10px] uppercase tracking-widest font-medium mb-3">Galerie d'art Oraxe</p>
+                  <p className="text-sm font-medium">20 Rue Saint Roch</p>
+                  <p className="text-sm text-gray-500">75001 Paris</p>
+                </div>
 
-                  <div>
-                    <p className="font-bold mb-1 text-left">Siege :</p>
-                    <p className="text-left">TRIVARIUS</p>
-                    <p className="text-left">📍 320 RUE SAINT-HONORÉ</p>
-                    <p className="text-left">75001 PARIS</p>
-                  </div>
-                  
-                  <div className="flex items-center gap-3 mt-4">
-                    <div className="w-8 h-8 flex items-center justify-center border border-gray-400 rounded-lg text-gray-600 shrink-0">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                      </svg>
-                    </div>
-                    <div className="flex flex-col text-[11px] font-light text-left">
-                      <span>Siret: 91764406400011</span>
-                      <span>Code NAF: 4778C</span>
-                    </div>
+                <div className="flex flex-col gap-1 text-[#000] font-inter">
+                  <p className="text-gray-400 text-[10px] uppercase tracking-widest font-medium mb-3">Siège</p>
+                  <p className="text-sm font-medium">TRIVARIUS</p>
+                  <p className="text-sm text-gray-500">320 Rue Saint-Honoré</p>
+                  <p className="text-sm text-gray-500">75001 Paris</p>
+                </div>
+                
+                <div className="flex items-center gap-4 mt-2">
+                  <a href="https://www.instagram.com/oraxegalerie?igsh=MTd3ZndlYjY1NWIxNQ%3D%3D" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-gray-300 hover:border-black hover:bg-black hover:text-white transition-all rounded-full text-black shrink-0 cursor-pointer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                  </a>
+                  <div className="flex flex-col text-[10px] font-medium text-gray-400 tracking-wider">
+                    <span>SIRET: 91764406400011</span>
+                    <span>CODE NAF: 4778C</span>
                   </div>
                 </div>
+                
               </div>
 
               <div className="w-full max-w-[700px] overflow-hidden shadow-sm">

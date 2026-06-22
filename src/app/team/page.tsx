@@ -30,6 +30,11 @@ export default function TeamPage() {
                   EXHIBITIONS
                 </span>
               </Link>
+              <Link href="/#upcoming-events" className="cursor-pointer text-left block">
+                <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
+                  UPCOMING EVENTS
+                </span>
+              </Link>
               <Link href="/#team" className="cursor-pointer text-left block">
                 <span className="text-[#000] font-inter text-[11px] font-semibold tracking-widest transition-colors">
                   TEAM
@@ -182,6 +187,61 @@ export default function TeamPage() {
                 </p>
                 <p>
                   Accompagne les artistes et rédige notamment critiques, textes et entretiens pour des catalogues, expositions et magazines. Commissaire d’expositions et journaliste à Artension et à Saisons de Culture.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Member 4: Marie-Laure MEHL */}
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start w-full">
+            {/* Column 1: Image */}
+            <div className="w-full lg:w-[400px] shrink-0 relative overflow-hidden aspect-[16/9] lg:aspect-[4/3] bg-gray-300">
+              <img
+                src="/Marie-Laure.jpeg"
+                alt="Marie-Laure Mehl"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Column 2: Info */}
+            <div className="w-full lg:w-48 shrink-0 flex flex-col gap-1">
+              <span className="text-[#000] font-inter text-[13px] font-bold">
+                Marie-Laure MEHL
+              </span>
+              <span className="text-[#000] font-inter text-[13px] font-bold mt-4">
+                Membre fondatrice
+              </span>
+              <a
+                href="mailto:Marie-Laure.MEHL@oraxe.eu"
+                className="text-[#9D9D9D] font-inter text-[12px] font-medium hover:text-[#000] transition-colors mt-4 break-all"
+              >
+                Marie-Laure.MEHL@oraxe.eu
+              </a>
+            </div>
+
+            {/* Column 3: Bio */}
+            <div className="flex-grow w-full max-w-xl">
+              <div className="text-[#000] font-inter text-[13px] font-normal leading-relaxed text-left text-justify flex flex-col gap-4">
+                <p>
+                  Marie-Laure Mehl, née le 14 juin 1953, est membre fondatrice de la Galerie Oraxe.
+                </p>
+                <p>
+                  Architecte scénographe, muséographe et spécialiste des expositions culturelles, elle met au service de la galerie plus de quarante années d’expérience consacrée à la conception, au développement et à l’accompagnement de projets d’exposition.
+                </p>
+                <p>
+                  Au cours de sa carrière, elle a participé à la réalisation d’environ 200 expositions temporaires et permanentes au sein d’institutions culturelles majeures, dans des contextes patrimoniaux et architecturaux variés : musées, châteaux, lieux de mémoire, centres d’interprétation et architectures contemporaines.
+                </p>
+                <p>
+                  Son parcours l’a conduite à intervenir notamment à la Cité des Sciences et de l’Industrie, au château de Chambord, au Haras du Pin, au Musée de l’Homme, à la Conciergerie, au Musée de l’Air et de l’Espace du Bourget, ainsi qu’à mener des missions d’assistance à maîtrise d’ouvrage pour la Bibliothèque nationale de France et le Muséum national d’Histoire naturelle.
+                </p>
+                <p>
+                  Engagée dans la transmission des savoirs, elle enseigne la scénographie et la muséographie depuis de nombreuses années au sein de plusieurs établissements de référence, dont l’École Bleue, ICART, EFAP et ISCOM.
+                </p>
+                <p>
+                  Membre active de l’Association Scénographes depuis 2008, elle participe aux réflexions sur l’évolution des pratiques professionnelles et a contribué à la rédaction du Guide des bonnes pratiques d’exposition et des scénographes d’expositions. Elle est également l’un des membres fondateurs de XPO, la Fédération des Métiers de l’Exposition.
+                </p>
+                <p>
+                  Par son expérience, sa connaissance du monde muséal et sa vision de l’exposition comme espace de dialogue entre œuvres et publics, Marie-Laure Mehl contribue au développement de la Galerie Oraxe et à son ambition d’exigence artistique et culturelle.
                 </p>
               </div>
             </div>

@@ -32,6 +32,9 @@ export default function PolitiquePage() {
               <Link href="/exhibitions" className="cursor-pointer text-left block">
                 <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">EXHIBITIONS</span>
               </Link>
+              <Link href="/#upcoming-events" className="cursor-pointer text-left block">
+                <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">UPCOMING EVENTS</span>
+              </Link>
               <Link href="/team" className="cursor-pointer text-left block">
                 <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">TEAM</span>
               </Link>

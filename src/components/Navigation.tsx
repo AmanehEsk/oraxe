@@ -28,6 +28,9 @@ export default function Navigation() {
         <Link href="/exhibitions" className="hover:opacity-70 transition-opacity uppercase">
           Exhibitions
         </Link>
+        <Link href="/#upcoming-events" className="hover:opacity-70 transition-opacity uppercase">
+          Upcoming Events
+        </Link>
         <Link href="/team" className="hover:opacity-70 transition-opacity uppercase">
           Team
         </Link>
