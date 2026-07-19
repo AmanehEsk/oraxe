@@ -36,33 +36,82 @@ export default async function HomePage() {
 
   const exhibitions = [
     {
-      id: "iranian-women",
-      title: "Iranian Women",
+      id: "regards-croises",
+      title: "Regards Croisés",
       year: "2026",
-      desc: "La Galerie Oraxe est un espace moderne d'exposition d'œuvres d'art qui, en mettant l'accent sur les artistes et commissaires contemporains, présente des expositions en cours et des ventes aux enchères mensuelles. Grâce à son archive d'expositions, son magazine et ses pages associées, iranien.",
-      image: "/assets/banner1.png",
+      desc: "Une exploration fascinante des perspectives multiples dans l'art moderne, mettant en lumière la diversité des expressions visuelles et la richesse des dialogues interculturels.",
+      image: "https://galleryoraxe.com/events/expo_oraxe_1.png",
     },
     {
-      id: "dans-la-lune",
-      title: "Dans la lune",
+      id: "echos-invisible",
+      title: "Échos de l'Invisible",
       year: "2026",
-      desc: "La Galerie Oraxe est un espace moderne d'exposition d'œuvres d'art qui, en mettant l'accent sur les artistes et commissaires contemporains, présente des expositions en cours et des ventes aux enchères mensuelles. Grâce à son archive d'expositions, son magazine et ses pages associées, iranien.",
-      image: "/assets/banner2.png",
+      desc: "Cette exposition plonge dans les dimensions cachées de la création, où les artistes traduisent l'immatériel en formes sensibles et poétiques.",
+      image: "https://galleryoraxe.com/events/expo_oraxe_2.png",
+    },
+    {
+      id: "horizons-contemporains",
+      title: "Horizons Contemporains",
+      year: "2026",
+      desc: "Un panorama audacieux des nouvelles tendances de la scène artistique internationale, repoussant les limites de l'esthétique traditionnelle.",
+      image: "https://galleryoraxe.com/events/expo_oraxe_3.png",
+    },
+    {
+      id: "matiere-memoire",
+      title: "Matière et Mémoire",
+      year: "2026",
+      desc: "À travers la sculpture et la peinture, cette sélection d'œuvres interroge notre rapport au passé et la persistance des souvenirs dans le monde contemporain.",
+      image: "https://galleryoraxe.com/events/expo_oraxe_4.png",
+    },
+    {
+      id: "lumieres-urbaines",
+      title: "Lumières Urbaines",
+      year: "2026",
+      desc: "Une immersion vibrante dans l'effervescence de la ville, capturée par des artistes qui transforment l'espace urbain en toile de fond de leurs récits.",
+      image: "https://galleryoraxe.com/events/expo_oraxe_5.png",
+    },
+    {
+      id: "dialogues-silencieux",
+      title: "Dialogues Silencieux",
+      year: "2026",
+      desc: "Des œuvres intimistes qui invitent à la contemplation, créant un espace de réflexion où le silence devient un langage à part entière.",
+      image: "https://galleryoraxe.com/events/expo_oraxe_6.png",
+    },
+    {
+      id: "empreintes-du-temps",
+      title: "Empreintes du Temps",
+      year: "2026",
+      desc: "Une réflexion profonde sur l'écoulement du temps, matérialisée par des techniques mixtes et des approches conceptuelles novatrices.",
+      image: "https://galleryoraxe.com/events/expo_oraxe_7.png",
+    },
+    {
+      id: "audela-frontieres",
+      title: "Au-delà des Frontières",
+      year: "2026",
+      desc: "Célébrant l'universalité de l'art, cette exposition rassemble des créateurs d'horizons divers pour déconstruire les barrières culturelles et géographiques.",
+      image: "https://galleryoraxe.com/events/expo_oraxe_8.png",
+    },
+    {
+      id: "resonances",
+      title: "Résonances",
+      year: "2026",
+      desc: "Un voyage sensoriel où les couleurs, les textures et les sons se répondent pour offrir une expérience immersive inédite au spectateur.",
+      image: "https://galleryoraxe.com/events/expo_oraxe_9.png",
     },
   ];
 
   return (
     <div className="bg-[#EBEBEB] min-h-screen w-full flex flex-col items-center py-12 px-6 md:px-16 overflow-y-auto">
-      
+
       {/* Main Content Container */}
       <div className="w-full max-w-7xl flex flex-col gap-24">
-        
+
         {/* Banner Section */}
         <div className="flex flex-col xl:flex-row w-full max-w-7xl mx-auto gap-8 items-start justify-between">
-          
+
           {/* Left Menu Box */}
           <div className="bg-transparent py-4 flex items-center w-fit shrink-0">
-            
+
             {/* Logo */}
             <Link href="/" className="cursor-pointer">
               <div className="flex items-center justify-center p-2 md:p-4 hover:opacity-80 transition-opacity">
@@ -73,10 +122,10 @@ export default async function HomePage() {
                 />
               </div>
             </Link>
-            
+
             {/* Divider */}
             <div className="w-[1px] h-12 md:h-16 bg-gray-300 mx-3 md:mx-4"></div>
-            
+
             {/* Navigation Menu */}
             <div className="flex flex-col gap-1 md:gap-2 pl-1 md:pl-2 pr-2 md:pr-4">
               <Link href="#artists" className="cursor-pointer text-left block">
@@ -89,9 +138,9 @@ export default async function HomePage() {
                   EXHIBITIONS
                 </span>
               </Link>
-              <Link href="#upcoming-events" className="cursor-pointer text-left block">
+              <Link href="#past-events" className="cursor-pointer text-left block">
                 <span className="text-[#9D9D9D] font-inter text-[10px] md:text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">
-                  UPCOMING EVENTS
+                  EVENTS
                 </span>
               </Link>
               <Link href="#team" className="cursor-pointer text-left block">
@@ -110,19 +159,19 @@ export default async function HomePage() {
                 </span>
               </Link>
             </div>
-            
+
           </div>
-          
+
           {/* Main Background Image Slider */}
           <div className="relative w-full h-[500px] md:h-[600px] lg:h-[750px] overflow-hidden bg-transparent flex-grow">
             <HomeSlider />
           </div>
-          
+
         </div>
 
         {/* Text Section */}
         <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl mx-auto px-4 md:px-0 items-start">
-          
+
           {/* Title */}
           <div className="md:w-1/3 flex-shrink-0">
             <h2 className="text-[#170098] font-inika text-2xl lg:text-3xl font-bold leading-tight m-0 uppercase">
@@ -144,7 +193,7 @@ export default async function HomePage() {
               </p>
             </div>
           </div>
-          
+
         </div>
 
         {/* Artists Section */}
@@ -197,8 +246,8 @@ export default async function HomePage() {
                 </div>
                 <div className="w-full flex-grow flex flex-col">
                   <Link href={`/exhibitions/${ex.id}`} className="group w-full max-w-4xl block cursor-pointer">
-                    <div className="w-full aspect-[3/1] md:aspect-[4/1] bg-[#DBDBDB] group-hover:opacity-85 transition-opacity overflow-hidden flex items-center justify-center shadow-sm">
-                       <img src={ex.image} alt={ex.title} className="w-full h-full object-cover" />
+                    <div className="w-full bg-[#DBDBDB] group-hover:opacity-85 transition-opacity overflow-hidden flex items-center justify-center shadow-sm">
+                       <img src={ex.image} alt={ex.title} className="w-full h-auto object-contain" />
                     </div>
                     <h2 className="text-[#9D9D9D] font-inter text-lg lg:text-xl font-normal mt-4 group-hover:text-black transition-colors block pl-2">
                       {ex.title}
@@ -210,11 +259,11 @@ export default async function HomePage() {
           </div>
         </div>
 
-        {/* Upcoming Events Section */}
-        <div id="upcoming-events" className="flex flex-col gap-12 scroll-mt-24 pt-8 border-t border-gray-300">
+        {/* Events Section */}
+        <div id="past-events" className="flex flex-col gap-12 scroll-mt-24 pt-8 border-t border-gray-300">
           <div>
             <h2 className="text-[#170098] font-inika text-2xl lg:text-3xl font-bold tracking-widest uppercase text-left">
-              Upcoming Events
+              Events
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
@@ -504,41 +553,41 @@ export default async function HomePage() {
                 <form className="flex flex-col gap-8">
                   <div className="flex flex-col gap-1">
                     <label className="text-gray-400 font-inter text-[10px] uppercase tracking-widest font-medium">Name</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       className="bg-transparent border-b border-gray-300 py-3 focus:outline-none focus:border-black font-inter text-sm transition-colors rounded-none placeholder-gray-300"
                       placeholder="Your name"
                     />
                   </div>
-                  
+
                   <div className="flex flex-col gap-1">
                     <label className="text-gray-400 font-inter text-[10px] uppercase tracking-widest font-medium">Surname</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       className="bg-transparent border-b border-gray-300 py-3 focus:outline-none focus:border-black font-inter text-sm transition-colors rounded-none placeholder-gray-300"
                       placeholder="Your surname"
                     />
                   </div>
-                  
+
                   <div className="flex flex-col gap-1">
                     <label className="text-gray-400 font-inter text-[10px] uppercase tracking-widest font-medium">Email</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       className="bg-transparent border-b border-gray-300 py-3 focus:outline-none focus:border-black font-inter text-sm transition-colors rounded-none placeholder-gray-300"
                       placeholder="Your email address"
                     />
                   </div>
-                  
+
                   <div className="flex flex-col gap-1">
                     <label className="text-gray-400 font-inter text-[10px] uppercase tracking-widest font-medium">Message</label>
-                    <textarea 
+                    <textarea
                       rows={1}
                       className="bg-transparent border-b border-gray-300 py-3 focus:outline-none focus:border-black font-inter text-sm transition-colors rounded-none placeholder-gray-300 resize-none overflow-hidden"
                       placeholder="Your message..."
                     ></textarea>
                   </div>
 
-                  <button 
+                  <button
                     type="submit"
                     className="mt-4 border border-black text-black bg-transparent font-inter text-xs uppercase tracking-widest font-medium py-4 px-10 hover:bg-black hover:text-white transition-all w-fit"
                   >
@@ -551,7 +600,7 @@ export default async function HomePage() {
             {/* Right Side: Address + Map Column */}
             <div className="flex flex-col gap-16 lg:gap-20 w-full">
               <div className="flex flex-col gap-10">
-                
+
                 <div className="flex flex-col gap-1 text-[#000] font-inter">
                   <p className="text-gray-400 text-[10px] uppercase tracking-widest font-medium mb-3">Galerie d'art Oraxe</p>
                   <p className="text-sm font-medium">20 Rue Saint Roch</p>
@@ -564,7 +613,7 @@ export default async function HomePage() {
                   <p className="text-sm text-gray-500">320 Rue Saint-Honoré</p>
                   <p className="text-sm text-gray-500">75001 Paris</p>
                 </div>
-                
+
                 <div className="flex items-center gap-4 mt-2">
                   <a href="https://www.instagram.com/oraxegalerie?igsh=MTd3ZndlYjY1NWIxNQ%3D%3D" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center border border-gray-300 hover:border-black hover:bg-black hover:text-white transition-all rounded-full text-black shrink-0 cursor-pointer">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -578,7 +627,7 @@ export default async function HomePage() {
                     <span>CODE NAF: 4778C</span>
                   </div>
                 </div>
-                
+
               </div>
 
               <div className="w-full max-w-[700px] overflow-hidden shadow-sm">

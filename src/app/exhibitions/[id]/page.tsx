@@ -2,8 +2,20 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const exhibitionData: Record<string, { title: string }> = {
+  "regards-croises": { title: "Regards Croisés" },
+  "echos-invisible": { title: "Échos de l'Invisible" },
+  "horizons-contemporains": { title: "Horizons Contemporains" },
+  "matiere-memoire": { title: "Matière et Mémoire" },
+  "lumieres-urbaines": { title: "Lumières Urbaines" },
+  "dialogues-silencieux": { title: "Dialogues Silencieux" },
+  "empreintes-du-temps": { title: "Empreintes du Temps" },
+  "audela-frontieres": { title: "Au-delà des Frontières" },
+  "resonances": { title: "Résonances" }
+};
+
 export function generateStaticParams() {
-  return [{ id: "iranian-women" }, { id: "dans-la-lune" }];
+  return Object.keys(exhibitionData).map((id) => ({ id }));
 }
 
 export default async function ExhibitionDetailPage({
@@ -12,16 +24,16 @@ export default async function ExhibitionDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const resolvedParams = await params;
-  
+
   // Basic mock database logic simulating fetching the exhibition
-  const title = resolvedParams.id === "iranian-women" ? "Iranian Women" : "Dans la lune";
+  const title = exhibitionData[resolvedParams.id]?.title || "Exposition Inconnue";
 
   return (
     <div className="bg-[#EBEBEB] min-h-screen w-full flex flex-col py-12 px-6 md:px-16 overflow-y-auto">
-      
+
       {/* Top Header Row  */}
       <div className="w-full max-w-[1300px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-32 items-start mb-16 mt-8 lg:ml-8">
-        
+
         {/* Left Menu Box */}
         <div className="bg-[#FFF] py-4 px-6 flex items-center shadow-sm shrink-0 h-fit">
           <Link href="/" className="cursor-pointer">
@@ -37,8 +49,8 @@ export default async function ExhibitionDetailPage({
             <Link href="/#exhibitions" className="cursor-pointer text-left block">
               <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">EXHIBITIONS</span>
             </Link>
-            <Link href="/#upcoming-events" className="cursor-pointer text-left block">
-              <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">UPCOMING EVENTS</span>
+            <Link href="/#past-events" className="cursor-pointer text-left block">
+              <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">EVENTS</span>
             </Link>
             <Link href="/#team" className="cursor-pointer text-left block">
               <span className="text-[#9D9D9D] font-inter text-[11px] font-semibold tracking-widest hover:text-[#000] transition-colors">TEAM</span>
@@ -56,7 +68,7 @@ export default async function ExhibitionDetailPage({
 
         {/* Info Column */}
         <div className="flex flex-col flex-grow max-w-4xl">
-          
+
           <div className="flex flex-col mb-12">
             <h1 className="text-[#000] font-inter text-[15px] font-normal uppercase">
               {title}
@@ -69,7 +81,7 @@ export default async function ExhibitionDetailPage({
 
           <div className="text-[#000] font-inter text-[13px] font-normal leading-relaxed text-left">
             <p>
-              La Galerie Oraxe est un espace moderne d'exposition d'œuvres d'art qui, en mettant l'accent sur les artistes et commissaires contemporains, présente des expositions en cours et des ventes aux enchères mensuelles. Grâce à son archive d'expositions, son magazine et ses pages associées, iranien. 2026 La Galerie Oraxe est un espace moderne d'exposition d'œuvres d'art qui, en mettant l'accent sur les artistes et commissaires contemporains, présente des expositions en cours et des ventes aux enchères mensuelles. Grâce à son archive d'expositions, son magazine et ses pages associées, iranien.
+              La Galerie Oraxe est un espace moderne d'exposition d'œuvres d'art qui, en mettant l'accent sur les artistes et commissaires contemporains, présente des expositions en cours et des ventes aux enchères mensuelles. Grâce à son archive d'expositions, son magazine et ses pages associées, elle soutient la création artistique internationale. 2026 La Galerie Oraxe est un espace moderne d'exposition d'œuvres d'art qui, en mettant l'accent sur les artistes et commissaires contemporains, présente des expositions en cours et des ventes aux enchères mensuelles. Grâce à son archive d'expositions, son magazine et ses pages associées, elle soutient la création artistique internationale.
             </p>
           </div>
 
@@ -79,13 +91,13 @@ export default async function ExhibitionDetailPage({
 
       {/* Masonry Gallery Grid */}
       <div className="w-full max-w-[1300px] mx-auto mt-16 px-2 lg:px-8">
-        
+
         {/*
-          Using an explicit grid layout that mimics the specific blocks layout in `ToDo.md` 
+          Using an explicit grid layout that mimics the specific blocks layout in `ToDo.md`
           It has 3 logical columns.
         */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[250px] md:auto-rows-[300px]">
-          
+
           {/* Top Row: 3 standard tall columns */}
           <div className="bg-[#D9D9D9] w-full hover:opacity-85 transition-opacity row-span-2 cursor-pointer overflow-hidden relative">
              <img src="/assets/art1.png" className="absolute inset-0 w-full h-full object-cover" alt="Gallery Art 1" />
